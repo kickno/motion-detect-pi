@@ -1,0 +1,22 @@
+<html>
+<head><title>motion-detection-photo</title></head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<body>
+<script>
+var dir = "motion-detect-photo/";
+var fileextension = ".jpg";
+$.ajax({
+    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
+    url: dir,
+    success: function (data) {
+        //List all .png file names in the page
+        $(data).find("a:contains(" + fileextension + ")").each(function () {
+            var filename = this.href.replace(window.location.host, "").replace("http://", "");
+
+            $("body").append("<img src='" + dir + filename + "'>");
+        });
+    }
+});
+</script>
+</body>
+</html>
