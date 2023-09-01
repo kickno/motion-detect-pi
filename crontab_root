@@ -1,0 +1,2 @@
+
+* * * * * ping -c1 blog.riot.jp >> pingriot "done $(/bin/date)" >> pingriot
